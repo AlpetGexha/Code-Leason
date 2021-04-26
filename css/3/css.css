@@ -1,0 +1,54 @@
+ul.l1 {
+	/*
+	list-style: square;
+*/
+	list-style-image: url(test.gif);
+}
+
+ol.l2 {
+	/*
+list-style: lower-alpha;
+*/
+	background: #ffeeee;
+	padding: 15px;
+
+}
+
+ol.l2 li {
+	background: #ffe5e5;
+	padding: 10px;
+	margin-left: 30px;
+
+}
+
+th,
+td {
+	border: 1px solid red;
+	padding: 15px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+tbody tr:nth-child(odd) {
+	background-color: red;
+}
+
+tbody tr:nth-child(even) {
+	background-color: #CD5C5C;
+}
+
+.Jeta {
+
+	width: 200px;
+	/*
+	overflow: hidden;
+	*/
+	overflow: auto;
+}
+
+.Jeta img {
+	width: 400px;
+
+}
