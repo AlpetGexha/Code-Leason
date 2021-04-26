@@ -1,0 +1,66 @@
+.gallery-container {
+    width: 100%;
+    display: inline-block;
+}
+
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+/* CSS sprites */
+#home {
+    width: 46px;
+    height: 44px;
+    background: url(https://www.w3schools.com/css/img_navsprites.gif) 0 0;
+}
+
+#next {
+    width: 43px;
+    height: 44px;
+    background: url(https://www.w3schools.com/css/img_navsprites.gif) -91px 0;
+}
+
+/* attribute selections */
+
+a[href] {
+    color: darkblue;
+}
+
+a[href="https://google.com"] {
+    color: red;
+}
+
+[title~=flower] {
+    border: 5px solid yellow;
+}
+
+[class|=top] {
+    background: yellow;
+}
+
+[class^="left"] {
+    background: red;
+    color: #fff;
+}
+
+[class$="end"] {
+    background: darkblue;
+    color: #fff;
+}
