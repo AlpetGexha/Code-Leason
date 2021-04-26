@@ -1,0 +1,24 @@
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: red;
+    display: none;
+    position: absolute;
+}
+
+.time {
+    position: absolute;
+    right: 20px;
+
+    top: 10px;
+    font-size: 20px;
+}
+
+.hapesira-potenciale {
+    width: 900px;
+    height: 500px;
+    border: 1px dotted #ddd;
+    margin: 0px;
+    display: none;
+}
