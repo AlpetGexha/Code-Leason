@@ -1,0 +1,49 @@
+/*
+ p{
+ 	
+border-width: 3px;
+border-style: solid; 
+border-color: red;
+margin-top: 400px;
+margin-left: 100px ;
+margin-right: 80px ;
+margin-bottom: 100px;
+margin: 50px 80px 100px;
+margin: 90px;
+ }
+ */
+pre {
+   padding: 60px;
+}
+
+div {
+   /*
+ 	height: 150px;
+ 	width: 30%;
+ 	background-color: lightblue;
+    height: 100px;
+    max-width: 500px;
+    background-color: powderblue;
+    */
+   width: 430px;
+   margin: 20px;
+   padding: 30px;
+   border: 15px solid red;
+   background: #aeaeae;
+}
+
+h1 {
+   /*
+letter-spacing: 20px
+word-spacing: 30px;
+text-indent: 30px;
+*/
+   margin-left: 120px;
+   margin-right: 200px;
+   margin-bottom: 20px;
+   margin-top: 40px;
+   padding: 10px;
+   letter-spacing: 2px;
+   line-height: 20px;
+
+}
