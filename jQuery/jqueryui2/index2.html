@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Mesimi 13</title>
+	<link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
+	<meta name="viewport" content="width=device-witdh,initial-scale=1.0" />
+	<meta charset="utf-8">
+</head>
+
+<body>
+	<script src="jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+	<script src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
+
+	<div id="accordion">
+
+		<h3>HTML</h3>
+		<div>
+			<p>
+				Hypertext Markup Language (HTML) is the standard markup language for documents designed to be displayed
+				in a web browser. It can be assisted by technologies such as Cascading Style Sheets (CSS) and scripting
+				languages such as JavaScript.
+			</p>
+		</div>
+		<h3>CSS</h3>
+		<div>
+			<p>
+				Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a
+				document written in a markup language such as HTML. CSS is a cornerstone technology of the World Wide
+				Web, alongside HTML and JavaScript.
+			</p>
+		</div>
+		<h3>JavaScript</h3>
+		<div>
+			<p>
+				JavaScript often abbreviated as JS, is a programming language that conforms to the ECMAScript
+				specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has
+				curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.
+			</p>
+			<ul>
+				<li>HTML </li>
+				<li>CSS</li>
+				<li>JavaScript</li>
+			</ul>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$(function () {
+			$("#accordion").accordion({
+				collapsible: true
+			})
+
+		});
+
+
+		/* 
+		$(function(){
+			$("#accordion").accordion();
+		});
+		*/
+	</script>
+
+	<!--
+<div id="tabs">
+	<ul>
+		<li> <a href="#tabs-1">Franc</a></li>
+		<li><a href="#tabs-2"> USA </a> ></li>
+		<li><a href="#tabs-3"> Germani</a></li>
+		<li><a href="#tabs-1"> Tabi 1</a></li>
+	</ul>
+	<div id="tabs-1">
+		<p>Parisi është kryeqytet i Frances</p>
+	</div>
+	
+	<div id="tabs-2">
+		<p>Washinktoni është kryqyteti i USA-s</p>
+	</div>
+
+	<div id="tabs-3">
+		<p>Berlini është kryeqytet i Gjermanis</p>
+	</div>
+</div>
+
+<script type="text/javascript">
+	    
+    $(function(){
+
+    	$("#tabs").tabs();
+    });
+    
+</script>
+-->
+
+
+</body>
+
+</html>
