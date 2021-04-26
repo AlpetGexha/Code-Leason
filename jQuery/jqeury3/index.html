@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <h2>The XMLHttpRequest Object</h2>
+
+  <button type="button" onclick="loadDoc()">Request data</button>
+
+  <p id="demo">
+    <!--
+<title>JS 13</title>
+<meta charset="utf-8">
+
+</head>
+<body>
+
+<script src="jquery-3.5.1.min.js"></script>
+<div id="text"></div>
+-->
+    <script type="text/javascript">
+      /* City
+$.ajax({
+type:"GET",
+url:"https://api.meetup.com/2/cities",
+success:function(data){
+$('#text').text(JSON.stringify(data));
+},
+dataType: 'jsonp',
+});
+*/
+      /* Qytetet
+      $.ajax({
+      	type:"GET",
+      	url:"https://api.meetup.com/2/cities" ,
+      	success: function(data) {
+      		$('#text').text(JSON.stringify(data.results[0].city));
+      	},
+      	dataType: 'jsonp' ,
+      });
+      */
+      function loadDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("demo").innerHTML = this.responseText;
+          }
+        };
+        xhttp.open("GET", "demo_get.asp", true);
+        xhttp.send();
+      }
+    </script>
+    </body>
+
+</html>
