@@ -1,0 +1,178 @@
+/* 
+Theme Name;shkolladigjitale
+Text Domain;shkolladigjitale
+Version;1.0
+Descripsion; Pershkrimi...
+Tags; #post, #blog,
+Authur; Alpet Gexha
+Aurthur URI; 
+*/
+
+
+.nav_logo{
+position: absolute;
+left: 50px;
+}
+
+.nav_logo img{
+width: 65px;
+}
+
+.navbar ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.navbar li{
+	float: right;
+}
+
+.navbar li:hover{
+	background-color: red;
+}
+
+.navbar li a{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+/* 2
+nav{
+width: 100%;
+padding: 10px;
+background: grey;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+align-items: center;
+justify-content: flex-end;
+position: relative;
+
+}
+.logo{
+position: absolute;
+left: 50px;
+
+}
+.logo img{
+width: 65px;
+}
+.pages{          
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+margin-right: 20px;
+
+}
+.pages a{
+text-align: center;
+border-radius: 5px;
+text-decoration: none;
+color:black;
+padding:10px;
+background:#bdcebe;
+margin-left:10px;
+font-size: 15px;
+  width: 100px;
+}
+.pages a:hover{
+background:#eca1a6;
+}
+
+
+
+
+@media screen and (max-width: 640px){
+.logo{
+position: relative;
+margin:auto;
+left: 0px;
+}
+.pages a{
+margin-top: 10px;
+width: 100%;
+}
+}*/
+footer {
+  position:absolute;
+  background-color: #5B5B5B;
+  text-align: center;
+  padding: 5px;
+  width: 100%;
+}
+    	body{
+    		background-color: gray;
+    	}
+    	.post{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    		background-color: lightblue;
+    		padding: 23px;
+    		border: solid black 1px;
+    		border-radius: 5px;
+    		-webkit-box-shadow: 13px 21px 34px 12px rgba(55,175,219,0.95);
+        -moz-box-shadow: 13px 21px 34px 12px rgba(55,175,219,0.95);
+        box-shadow: 13px 21px 34px 12px rgba(55,175,219,0.95);
+        position: relative;
+    	}  
+    	.postim_individual{
+              display: flex;
+              justify-content: right;
+
+    	}
+    	.title{
+    		font-size: 30px;
+    		font-style: italic;
+    		text-shadow: 0 0 2px yellow;
+    	}
+    	.text {
+    		font-family: Trebuchet MS, sans-serif;
+    	}
+        .photo {
+        padding: 10px;
+        margin: 10px;
+
+        }
+        .tagi{
+            position: absolute;
+            bottom: 20px;
+        }
+
+
+ .container{
+ 	display: flex;
+ 	flex-direction: row;
+ 	flex-wrap: wrap;
+
+ }
+ .col1{
+ 	width: 79%;
+  height: 25%;
+ }
+ .col2{
+ 	display: flex;
+ 	flex-direction: column;	
+ 	justify-content: flex-start;
+ 	flex-wrap: wrap;
+ 	width:21%;
+ 	padding-left: 50px;
+ 	align-items: center;
+ }
+ .col2 img{
+  width: 280px !important;
+  height: 400px !important;
+ }
+.Social-list{
+	height: auto !important;
+}
+
