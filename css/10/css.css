@@ -1,0 +1,49 @@
+body {
+	background-color: #778899;
+	margin: 0;
+}
+.container {
+	display: flex;
+	flex-direction: row;
+	margin-top: 20px;
+	flex-wrap: wrap;
+}
+
+.container .item {
+	margin: 0 15px;
+	background-color: #F4A460;
+	margin: 1%;
+	width: 23%;
+}
+.container .item p{
+	padding: 15px;
+	margin: 0px;
+	border:2px solid yellow;
+	color: #CD5C5C;
+
+}
+/* ndryshi,o ngjyres se backgrond ne body, prej 1000px e lart */
+
+@media only screen and (min-width: 1000px){
+	body{
+		background-color: black;
+	}
+}
+
+/* gjeresia e  nje box elementi ne eresi prej 990px e poshte */
+@media only screen and (min-width: 990px){
+	.container .item {
+		width: 48%;
+	}
+}
+
+/* ndryshumi i ngjyres background ne body ddhe gheresi e nje box elementi
+ne gjeresine prej 600px e posht */
+@media only screen and (max-width: 600px) {
+	body {
+		background-color: lightsalmon;
+	}
+	.container .item {
+		width: auto;
+	}
+}
