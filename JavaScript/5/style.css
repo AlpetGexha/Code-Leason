@@ -1,0 +1,25 @@
+.shape_circle {
+    border-radius: 50%;
+    width: 650px;
+    height: 650px;
+    background: #A52A2A;
+}
+
+.shape_rect {
+    width: 600px;
+    height: 400px;
+    background: black;
+}
+
+.shape_triangle {
+    width: 0px;
+    height: 0px;
+    border-left: 300px solid transparent;
+    border-right: 300px solid transparent;
+    border-bottom: 450px solid yellow;
+
+}
+
+.hide {
+    display: none;
+}
