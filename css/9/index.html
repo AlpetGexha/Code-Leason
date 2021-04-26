@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shkolla Digjitale</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="witdh=device-witdh,initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css.css">	
+</head>
+<body>
+<!--  Firebox -->
+<!-- deklarphet ne css display flex -->
+<!-- Flex direcrion-deklarohet ne elementin prind, me këte vendosim se si dohet te rrathieten elementet child;oberacioner:
+Row:në rresht nga elementi i pare ne te madjt dhe i fundit ne te djathte
+Row-resvers: nga i fundit ne te mjat dhe i pari ne te djatht 
+Column : kolone nga elementi i pare lart dhe i fundit posht 
+Colum-revers: nga elementi i pare larte dhe i dundit posht elementi i fundit larte-->
+<!--flex-wrap : deklarohet ne elementin prind me kete percaktojm nese elementet do te rrijne ne nje linje
+Nowrap- cdo element mund te rri ne nje linje
+wrap : elementet do te rradhiten ne shume linja nga lart posht 
+warp-reverse: elementet radhiten ne shume linja nga posht  larte-->
+<!-- justify-content, definon radhijten ne mes kendeve kryesore, ndihmon ne shperndarje ne te gjitha hapsirat te te mbetura nga artikuj elementet te vendosura ne linje. 
+ opcionet: flex-start: elementet radhiten nga fillimi rreshtit. 
+ flex-end: elementet radhiten nga fundi i rreshtit. 
+ center: elementet radhiten nga qendra e rreshtit. 
+ space-between: elementet shperndahen ne menyre te barabart ne rresht, njeri ne fillim, tjeteri ne fund.
+ space-around:elementet shperndahen ne menyre te barabart ne rresht, me hapsire te njejt.
+ space-evenly: elementet shperndahen ashtu qe hapsira ne mes elementeve dhe skajeve eshte barabart. -->
+ <!-- align-items, percakton radhitjen e elementit ne mes skajeve te kryqezuara ne rresht.
+ opcionet: stretch: shtrirje per te mbushur gjithe kontajnerin. 
+ flex-start: elementet radhiten nga fillimi i kryqezuar i rreshtit,
+ flex-end: elementet radhiten nga fundi i kryqezuar i rreshtit, 
+ center: elementet radhiten ne qender te skajeve te kryqezuara. 
+ baseline: elementet rreshtohen sipas radhitjes baze te tyre.
+      -->
+ <!-- align-content, ben radhitjen e rreshtave te kontainerit kur ka hapsire te tepert ne skajet e kryqzuaras. -->
+ <!-- opsionet: flex-start: rreshtat radhiten nga fillimi i kontainerit. 
+flex-end: rreshtat radhiten nga fundi i kontainerit.
+ center: rreshtat radhiten drejt qendres se kontainerit. 
+  space-between: rreshtat shperndahen ne menyre te barabart, njeri ne fillim te kontaijnerit, tjeteri ne fund. 
+ space-around: rreshtat shperndahen ne menyre te barabart, me hapsire te njejt. 
+  stretch: rreshtat shtrihen ne menyr qe te zene hapsire e mbetur. -->
+ <!-- Flex-shrink, definone aftesine e flex-elementit te tkurret nese eshte ne vojshme, vlera i percaktohet me numer (+ pozitiv). --> 
+ <!-- Flex-basis definon madhesine te parazgjedhur te elementit para se pjesa e mbetur e hapsirave te shperndahet. -->
+  <!-- Flex - eshte nje shkurtese per flex-grow, flex-shrink dhe flex-basis te gjitha te kombinuara.
+  Parametri i dyte dhe i trete (flex-shring dhe flex-basis jan opcional, vlera e para zgjedhur eshte 0 1 auto).
+   -->
+
+<p>nje shembull i thjesht i perdorimit te disa operacioneve ne flexbox</p>
+<div class="contener">
+	<div class="item">
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+</div>
+<div class="item">
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+</div>
+<div class="item">
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+</div>
+</div>
+<div class="contener1">
+	<div class="item">
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+</div>
+	<div class="item">
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+</div>
+	<div class="item">
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+</div>
+	<div class="item">
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+</div>
+	</div>
+</body>
+</html>
