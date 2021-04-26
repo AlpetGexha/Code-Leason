@@ -1,0 +1,210 @@
+.example-1 {
+    white-space: nowrap;
+    width: 150px;
+    border: 1px solid #000000;
+    overflow: hidden;
+    font-size: 18px;
+    text-overflow: clip;
+}
+
+.example-2 {
+    white-space: nowrap;
+    width: 150px;
+    border: 1px solid #000000;
+    overflow: hidden;
+    font-size: 18px;
+    text-overflow: ellipsis;
+}
+
+.example-3 {
+
+    width: 150px;
+    border: 1px solid #000000;
+    overflow: hidden;
+    font-size: 18px;
+    word-wrap: break-word;
+}
+
+.example-4 {
+    width: 150px;
+    border: 1px solid #000000;
+    overflow: hidden;
+    font-size: 18px;
+    word-break: break-all;
+}
+
+/*keep all ose breke-word
+e ndan textin nje rrjet me posht ne baze te fjales
+*/
+.example-5 {
+    font-family: "Lucida Console", Courier, monospace;
+}
+
+.example-6 {
+    font-family: Imapct, Charcoal, sans-serif;
+}
+
+@font-face {
+    font-family: 'Antaro';
+    src: url('../assets/fonts/Antaro.ttf');
+    src: url('../assets/fonts/Antaro.otf');
+}
+
+
+.example-7 {
+    font-family: 'Antaro', sans-serif
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+
+.example-8 {
+    font-family: 'Roboto', sans-serif
+}
+
+.example-9 {
+    width: 200px;
+    height: 200px;
+    background-color: darkgreen;
+    transition: background-color 0.5s ease;
+}
+
+.example-9:hover {
+    background-color: darkred;
+}
+
+.example-10 {
+    width: 200px;
+    height: 200px;
+    background-color: darkblue;
+    transition: background-color 0.5s ease-out padding 0.8s linear;
+}
+
+.example-10:hover {
+    background-color: darkorange;
+    padding: 15px;
+
+}
+
+.example-11 {
+    width: 200px;
+    height: 200px;
+    background-color: darkviolet;
+}
+
+.example-11:hover {
+    transition: background-color 0.5s ease-out, padding 0.8s linear;
+    -moz-transition: background-color 0.5s ease-out, padding 0.8s linear;
+    -webkit-transition: background-color 0.5s ease-out, padding 0.8s linear;
+    -o-transition: background-color 0.5s ease-out, padding 0.8s linear;
+    background-color:
+        palevioletred;
+    padding: 15px;
+}
+
+/* ne kete rast ne animacion deklarohet keyframe i thirrur, 
+sekondat, edhe nese duam ajo te perseritet e deklarojim infinite */
+/* por nen objektet e animations jane:
+ animation-name
+animation-duration
+animation-delay
+animation-iteration-count
+animation-direction
+animation-timing-function
+ animation-fill-mode animation
+  */
+.example-12 {
+    animation: pulse 2s infinite;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+
+}
+
+@keyframes pulse {
+    /* fillimi animacionit */
+
+    0% {
+        background-color: red;
+    }
+
+    50% {
+        background-color: green;
+    }
+
+    /* fundi animacionit */
+    100% {
+        background-color: red;
+    }
+}
+
+.example-13 {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    animation-name: example;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+@keyframes example {
+    0% {
+        background-color: red;
+        left: 0px;
+        top: 0px;
+    }
+
+    25% {
+        background-color: #228B22;
+        left: 200px;
+        top: 0px;
+    }
+
+    50% {
+        background-color: #7FFFD4;
+        left: 200px;
+        top: 200px;
+    }
+
+    75% {
+        background-color: blue;
+        left: 0px;
+        top: 200px;
+    }
+
+    100% {
+        background-color: #8B0000;
+        left: 0px;
+        top: 0px;
+    }
+}
+
+/* nje shembull i perdorimit i dy animacioneve ne te njejten koh */
+.example-14 {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    position: relative;
+    animation: pulse 3s ease infinite alternate,
+        /* pulse e thirr atje nelt qe e kemi keyframe */
+        nudge 5s ease infinite alternate;
+}
+
+@keyframes nudge {
+    0% {
+        left: 0px;
+    }
+
+    50% {
+        left: 200px;
+    }
+
+    100% {
+        left: 0px;
+    }
+}
