@@ -1,0 +1,70 @@
+* {
+	margin: 0; padding: 0 ;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	justify-content: center; align-items: center;
+	min-height: 100vh;
+	background: #111;
+
+}
+
+ul{
+	position: relative;
+	margin: 0; padding: 0;
+	display: flex;
+	justify-content: center;align-items: center;
+	border: 3px solid #000;
+	border-radius: 10px;
+	box-sizing: border-box;
+	overflow: hidden; width: 240px;
+	background: linear-gradient(0deg, #000000,#0c0c0c);
+}
+
+ul li {
+	position: relative;
+	list-style: none;
+	text-align: center; margin: 15px;
+}
+
+ul li label {
+	position: relative;
+}
+ul li label input [type="chekbox"] {
+	position: absolute;
+	opacity: 0; cursor: pointer;
+}
+
+ul li label .icon-box {
+	width: 60px; height: 60px;
+	background: #101010;
+	display: flex;
+	justify-content: center; align-items: center;
+	border: 3px solid #000;
+	transition: 1.5s;
+	border-radius: 10px; cursor: pointer;
+}
+.icon-box .far
+.fas
+.fab {
+	font-size: 25px; color: #222;
+	transition: 0.5s;
+}
+ul li label input [type="checkbox"]:checked ~ .icon-box {
+	background: #000;
+	border: 3px solid #fff;
+	box-shadow: 0 0 10px rgba(33, 156, 243, 0.5),
+	           0 0 20px rgba(33, 156, 243, 0.5),
+	           0 0 30px rgba(33, 156, 243, 0.5),
+	           inset 0 0 10px rgba(33, 156, 243, 1)
+
+}
+ul li label input [type="chekbox"]:checked ~ .icon-box .far,
+ul li label input [type="chekbox"]:checked ~ .icon-box .fas,
+ul li label input [type="chekbox"]:checked ~ .icon-box .fab{
+	color: #fff;
+	text-shadow: 0 0 10px rgba(33, 156, 243, 1),
+	              0 0 10px rgba(33, 156, 243, 1);
+}

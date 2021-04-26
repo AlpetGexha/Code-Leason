@@ -1,0 +1,343 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+    <title> Checkbox Button Design With Neumorphism </title>
+<link rel="stylesheet" href="css/all.min.css">
+
+
+<style>
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+:root
+{
+    --mainWhite: #f2f3f7;
+    --buttonWhite: -2px -2px 5px rgba(255,255,255,1),
+                   3px 3px 5px rgba(0,0,0,0.07);
+
+    --buttonWhiteActive: inset -2px -2px 5px rgba(255,255,255,1),
+                  inset 3px 3px 5px rgba(0,0,0,0.07);             
+
+    --iconWhiteVer:#c2c2c2;
+
+    --mainDark:#222;
+
+    --buttonDark:inset -2px -2px 5px rgba(0,0,0,0.5),
+                  inset 3px 3px 5px rgba(255,255,255,0.07);
+
+    --buttonDarkActive:-2px -2px 5px rgba(0,0,0,0.5),
+                   3px 3px 5px rgba(255,255,255,0.07);
+
+    --iconDarkVer:#3e3e3e;
+
+    --iconDarkVerActive: 0 0 10px rgb(231,238,243),
+                         0 0 10px rgb(255,255,255);
+
+  --iconDarkLine: 0 0 10px rgba(235,235,235,0.5),
+                  0 0 20px rgba(235,235,235,0.5),
+                  0 0 30px rgba(235,235,235,0.5),
+                inset  0 0 10px rgba(235,235,235,0.5),
+     
+
+
+}
+
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    min-height: 100vh;
+    transition: 0.5s;
+}
+body.neumorphism
+{
+    background: var(--mainWhite);
+}
+
+body.neumorphism .switch
+{
+    background: var(--mainWhite);
+    box-shadow: var(--buttonWhite);
+
+}
+body.neumorphism .switch input[type="checkbox"] ~ .icon-box
+{
+    background: var(--mainWhite);
+    box-shadow: var(--buttonWhite);
+}
+body.neumorphism .switch input[type="checkbox"] ~ .icon-box i
+{
+    color: var(--iconWhiteVer);
+}
+body.neumorphism .switch input[type="checkbox"]:checked ~ .icon-box
+{
+    box-shadow: var(--buttonWhiteActive);
+
+}
+body.dark
+{
+    background: var(--mainDark);
+}
+body.dark .switch
+{
+    background: var(--mainDark);
+    box-shadow: var(--buttonDark);
+
+}
+body.dark .switch input[type="checkbox"] ~ .icon-box
+{
+    box-shadow: var(--buttonDark);
+    background: var(--mainDark);
+}
+body.dark .switch input[type="checkbox"] ~ .icon-box i
+{
+    color: var(--iconDarkVer);
+
+}
+body.dark .switch input[type="checkbox"]:checked ~ .icon-box
+{
+    box-shadow: var(--buttonDarkActive);
+}
+body.dark .switch input[type="checkbox"]:checked ~ .icon-box i
+{
+    text-shadow: var(--iconDarkVerActive);
+    color: #fff;
+}
+
+.switch
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    padding: 20px;
+}
+.switch_box
+{
+    position: relative;
+    list-style: none;
+    text-align: center;
+    margin: 15px;
+}
+.switch_box label
+{
+    position: relative;
+}
+.switch_box label input[type="checkbox"]
+{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.switch_box label input[type="checkbox"] ~ .icon-box
+{
+    width: 60px;
+    height: 60px;
+    display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 4px;
+}
+
+.switch_box label input[type="checkbox"] ~.icon-box i
+{
+    font-size: 20px;
+}
+
+.switch_box label input[type="checkbox"]:checked ~.icon-box i
+{
+    transform: scale(0.95);
+}
+
+.on-off
+{
+    position: relative;
+    width: 100px;
+    height: 55px;
+    margin: 15px;
+    font: 600 15px arial;
+}
+
+.on-off input
+{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider
+{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 100px;
+    background: var(--mainWhite);
+    box-shadow: var(--buttonWhiteActive);
+    transition: 0.4s ease ease;
+}
+.slider:before
+{
+    position: absolute;
+    content:"Bk";
+    text-align: center;
+    line-height: 45px;
+    width: 45px;
+    height: 45px;
+    left: 10px;
+    bottom: 5px;
+    background: var(--mainWhite);
+    box-shadow: var(--buttonWhite);
+    border-radius: 100px;
+    transition: 0.4s;
+}
+input:checked + .slider
+{
+    background: var(--mainDark);
+    box-shadow: inset -2px -2px 6px rgba(255,255,255,0.05),
+                inset 2px 2px 6px rgba(0,0,0,0.5);
+        transition:0.4s;        
+}
+
+input:checked + .slider:before
+{
+    content: "WH";
+    transform: translateX(36px);
+    background: var(--mainDark);
+    box-shadow: -2px -2px 6px rgba(255,255,255,0.05),
+             2px 2px 6px rgba(0,0,0,0.5);
+    color: var(--mainWhite);
+    width: 45px;
+    height: 45px;    
+    left: 10px;
+    bottom: 5px;
+    transition: 0.4s;     
+}
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+</head>
+<body class="neumorphism" translate="no">
+    
+    <ul class="switch" >
+
+        <li class="switch_box">
+            <label>
+                <input type="checkbox" name="">
+                <div class="icon-box">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+            </label>
+        </li>
+
+        <li class="switch_box">
+            <label>
+                <input type="checkbox" name="">
+                <div class="icon-box">
+                    <i class="fas fa-paper-plane"></i>
+                </div>
+            </label>
+        </li>
+
+        <li class="switch_box">
+            <label>
+                <input type="checkbox" name="">
+                <div class="icon-box">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </label>
+        </li>
+
+        <li class="switch_box">
+            <label>
+                <input type="checkbox" name="">
+                <div class="icon-box">
+                    <i class="fas fa-wifi"></i>
+                </div>
+            </label>
+        </li>
+
+        <li class="switch_box">
+            <label>
+                <input type="checkbox" name="">
+                <div class="icon-box">
+                    <i class="fas fa-volume-up"></i>
+                </div>
+            </label>
+        </li>
+
+        <li class="switch_box">
+            <label>
+                <input type="checkbox" name="">
+                <div class="icon-box">
+                    <i class="fas fa-home"></i>
+                </div>
+            </label>
+        </li>
+
+    </ul>
+
+
+
+    <label class="on-off">
+        <input type="checkbox" id="changeColor">
+    <span class="slider round"></span>
+    </label>
+
+
+
+<script src="js/jquery.js"></script>
+
+<script id="rendered-js">
+$(function (){
+   $("#changeColor").change(function () {
+      var checked = $(this).prop("checked");
+      $("body").removeClass();
+      if(checked)
+      {
+          $("body").addClass("dark");
+      }
+
+      else
+      {
+          $("body").addClass("neumorphism");
+      }
+
+   });
+
+});
+
+</script>
+
+
+</body>
+</html>
+
+
