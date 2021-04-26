@@ -1,0 +1,27 @@
+* {
+	background-color: yellow;
+}
+
+.a div p {
+	background-color: lightblue;
+}
+
+.b div p {
+	background-color: lightblue;
+}
+
+.c div+p {
+	background-color: lightblue;
+}
+
+.d div~p {
+	background-color: lightblue;
+
+}
+
+.e {
+	width: 240px;
+	height: 250px;
+	background-color: red;
+	opacity: 0.5s;
+}
