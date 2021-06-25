@@ -1,8 +1,9 @@
 <?php
-
+//namespace
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use  App\Http\Controllers\ArticalColntroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,25 +21,27 @@ use App\Http\Controllers\UserController;
 # duhet te kete patjeter "{}"
 # "name?" - jo opsional
                                             //Shko te UserController ,Thirre metoden index
-Route::get('/{name}/{surname}/{age?}', [UserController::class, 'index']);
+Route::get('/{name}/{surname}/{age?}', [UserController::class, 'index'])->where('age', '[0-9]+');
 
 # GET, POST, PUT, PATCH, DELETE, ANY, MATCH
-Route::get('/{name}/{surname}/{age?}', function ($name, $surname, $age = 0) {
-    // $tagname = "<script> alert('$name');s </script>";
-    // return "Hello $name!";
-    // return view('welcome');
-/*
-    shkon te faili resorse/views/"emri"
-    nuk ka  nevoj per  prapashtese
-*/
-    return view('hello', [
-        "name" => $name,
-        "surename" => $surname,
-        "age" => $age
-       // "tagname" => $tagname
-    ]); //name .php ose name.blade.php
-})->where('age', '[0-9]+'); //where " ku age eshte int  "
 
+
+//Route::get('/{name}/{surname}/{age?}', function ($name, $surname, $age = 0) {
+//    // $tagname = "<script> alert('$name');s </script>";
+//    // return "Hello $name!";
+//    // return view('welcome');
+///*
+//    shkon te faili resorse/views/"emri"
+//    nuk ka  nevoj per  prapashtese
+//*/
+//    return view('hello', [
+//        "name" => $name,
+//        "surename" => $surname,
+//        "age" => $age
+//       // "tagname" => $tagname
+//    ]); //name .php ose name.blade.php
+//})->where('age', '[0-9]+'); //where " ku age eshte int  "
+//
 
 Route::get('/Service', function () {
     return "Service";
@@ -51,6 +54,9 @@ Route::get('/about/{limit}', function ($limit) {
     }
     return "aboutus";
 });
+
+
+Route::resource('article', ArticalColntroller::class);
 
 
 
