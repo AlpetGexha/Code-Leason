@@ -28,7 +28,7 @@ class ArticalColntroller extends Controller
     //eshte sfaqja e formes se "postimit"
     public function create()
     {
-        //
+        return view('article.create');
     }
 
     /**
@@ -40,7 +40,7 @@ class ArticalColntroller extends Controller
     //logjika - posti
     public function store(Request $request)
     {
-        //
+        return view("article.article", ['title' => $request['title']]);
     }
 
     /**
@@ -63,7 +63,7 @@ class ArticalColntroller extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('article.view');
     }
 
     /**
@@ -73,9 +73,9 @@ class ArticalColntroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id)   #PUT
     {
-        //
+        return "I am title:" . $request['title'];
     }
 
     /**
@@ -86,6 +86,6 @@ class ArticalColntroller extends Controller
      */
     public function destroy($id)
     {
-        //
+        return "Artical: ". $id . "was delete succesful";
     }
 }
