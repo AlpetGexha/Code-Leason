@@ -25,6 +25,7 @@ php artisan
 Usage:
   command [options] [arguments]
 
+
 Options:
   -h, --help            Display help for the given command. When no command is given display help for the list command
   -q, --quiet           Do not output any message
