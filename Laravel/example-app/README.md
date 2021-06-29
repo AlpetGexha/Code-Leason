@@ -16,8 +16,5 @@ per Router {
 php artisan route:list - shaqja e ruterave
 }
 
-per fshirje {
-    
-}
 
 php artisan
