@@ -23,6 +23,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        \Blade::directive("sayHello", function ($value){
+           return "Hello $value";
+        });
+
+        \Blade::directive("toUpperCase", function ($value){
+            return strtoupper($value);
+        });
     }
 }

@@ -93,7 +93,7 @@
     <p> Empty subjects! </p>
 @endforeach
 --}}
-
+{{--
     @auth
         <p>I am authenticated</p>
     @endauth
@@ -101,7 +101,17 @@
     @guest
         <p>I am not authenticated</p>
     @endguest
-    
+--}}
+{{-- Mund te krijom  funkione tone "@function"(custom) nga app/Prociders/AppServiceProvider.php /boot --}}
+    @sayHello
+        <p> {{$username}} </p>
+
+    @sayHello(<p> {{$username}} </p>)
+
+
+@toUpperCase(  <h1>Alpet Gexha to Upper</h1> )
+
+
     </body>
 </html>
 
