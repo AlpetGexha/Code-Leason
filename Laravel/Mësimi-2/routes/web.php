@@ -14,5 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome',
+        [
+            'username'=>'Alpet Gexha',
+            'age'=> 16,
+            'subject' => ["TIK","SO","Praktik","Matematik"]
+        ]
+    );
+});
+Route::get('/php', function () {
+    return view('welcome-php');
 });
