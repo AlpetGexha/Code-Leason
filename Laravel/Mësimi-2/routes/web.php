@@ -25,3 +25,14 @@ Route::get('/', function () {
 Route::get('/php', function () {
     return view('welcome-php');
 });
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
+
+
+
