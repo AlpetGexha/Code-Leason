@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApplicationController
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+/*
+    if(request()->method() == "GET"){
+        abort(403,"Nuk mund te kqyeqeni ne kete faqe");
+    }
+*/
+
     return view('welcome',
         [
             'username'=>'Alpet Gexha',
@@ -26,13 +33,9 @@ Route::get('/php', function () {
     return view('welcome-php');
 });
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+Route::get('/about',[ApplicationController::class , 'about'])->name('about');
 
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
+Route::get('/home', [ApplicationController::class , 'home'])->name('home');
 
 
 

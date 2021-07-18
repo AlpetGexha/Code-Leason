@@ -1,6 +1,12 @@
 @extends('layouts.master')
 
 @section('title', "About Us")
+prepend
+@prepend('scripts')
+    <link rel="stylesheet" type="text/css" href="assets/css/about.css">
+@endprepend
+
+
 
 @section('body')
     <ul class="list-group">

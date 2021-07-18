@@ -2,10 +2,20 @@
 
 @section('title', "Home Page")
 
+{{--
 @section('style')
     @parent //nese deshirojm ti thirrim stylaj qe jane
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 @endsection
+
+--}}
+<div class="alert alert-danger">
+    {!! $slot= "ez" !!}
+</div>
+
+@push('scripts')
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+@endpush
 
 @section('body')
     <div class="row">
@@ -26,3 +36,5 @@
 
 
 @endsection
+
+
