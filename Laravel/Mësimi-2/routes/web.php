@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ApplicationController
+use App\Http\Controllers\ApplicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +21,7 @@ Route::get('/', function () {
     }
 */
 
+
     return view('welcome',
         [
             'username'=>'Alpet Gexha',
@@ -33,9 +34,10 @@ Route::get('/php', function () {
     return view('welcome-php');
 });
 
-Route::get('/about',[ApplicationController::class , 'about'])->name('about');
+Route::match(["get", "post"],'/home', [ApplicationController::class , 'home'])->name('home');
 
-Route::get('/home', [ApplicationController::class , 'home'])->name('home');
+Route::match(["get","post"],'/about',[ApplicationController::class , 'about'])->name('about');
+
 
 
 
