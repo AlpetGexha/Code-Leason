@@ -30,5 +30,8 @@ class AppServiceProvider extends ServiceProvider
         \Blade::directive("toUpperCase", function ($value){
             return strtoupper($value);
         });
+
+        //per te shperdar ne te gjita  rootat ($title)
+        view()->share('title', 'This is  best title ');
     }
 }
