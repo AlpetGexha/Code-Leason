@@ -1,0 +1,534 @@
+/*---------------My Profile ----------------*/
+/*--------------- a ----------------*/
+/*
+.body_profile{
+      padding: 20px;
+      border: solid grey 1px;
+      width: 900px;
+      border-radius: 5px;
+      background: lightblue;
+    }
+    #btn_update {
+      margin: 12px 0px 2px;
+    }
+    .body_profile{
+      margin:auto;
+    }
+    */
+body {
+  background: #092756;
+  background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -moz-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -moz-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+  background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -webkit-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -webkit-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+  background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -o-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -o-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+  background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -ms-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -ms-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+  background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), linear-gradient(to bottom, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), linear-gradient(135deg, #670d10 0%, #092756 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3E1D6D', endColorstr='#092756', GradientType=1);
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: fixed;
+}
+
+.rpmain {
+  display: block;
+  margin: auto;
+  padding: 10px;
+  border: solid 2px black;
+  border-radius: 4px;
+  background-color: lightblue;
+  width: 50%;
+  height: auto;
+  font-size: 30px;
+  text-align: center;
+}
+
+.RP_h1 {
+  text-align: center;
+  font-size: 50px;
+  color: red;
+}
+
+.FP_kujdes {
+  color: red;
+  font-size: 40px;
+}
+
+.FP_destinacioni {
+  color: blue;
+}
+
+.FP_img {
+  width: auto;
+  height: 25%;
+}
+
+@media screen and (max-width: 980px) {
+  .FP_img {
+    width: auto;
+    height: 15%;
+  }
+}
+
+/*----------- Jumptron---------- */
+.jumbotron {
+  border: 2px black solid;
+  border-radius: black 10px;
+}
+
+/*Foto*/
+.post_foto img {
+  max-width: 168px;
+  max-height: 168px;
+  padding: 10px;
+}
+
+.post_foto img:hover {
+  transform: scale(1.09);
+  transition: all 1.5s ease;
+}
+
+.post_foto img:not([src]) {
+  visibility: hidden;
+}
+
+.jumbotron {
+  position: relative;
+  border: 2px black solid;
+  background-color: #e9ecef;
+  padding: 40px;
+}
+
+/*BTN*/
+.post_delete {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+}
+
+#btn_search {
+  margin: 10px 0px 10px !important;
+}
+
+/*date/time*/
+.post_time {
+  position: absolute;
+  bottom: 10px;
+  left: 30px;
+  opacity: 0.4;
+}
+
+/*Loading gif*/
+#jumbotron_loading img{
+  width: 100%;
+}
+.loagin_no_more_post{
+  text-align: center;
+  color: red;
+  font-size: 50px;
+
+
+}
+
+/*----------- BANNER  ----------- */
+.banner img {
+  width: 100%;
+  height: 350px;
+}
+
+.banner {
+  position: relative;
+  margin: 0 auto;
+}
+
+.banner h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  text-align: center;
+  text-shadow: 2px 2px 5px red;
+}
+
+/*----------- Create Post ----------- */
+#btn_posto {
+  margin: 10 0 10px;
+}
+
+/*----------- Profile ----------- */
+
+
+
+/*----------- Linku per Nryshimin e passowrdit ----------- */
+
+.change_password_link {
+  position: absolute;
+  right: 30px;
+  bottom: 35px;
+}
+
+/*----------- Foto e profilit ----------- */
+.profile_img {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+
+}
+
+.profile_img img {
+  max-width: 220px;
+  max-height: 220px;
+  border: 3px black solid;
+  border-radius: 10px;
+  /*border-radius: 50px;*/
+  box-shadow: 2px 2px 3px red;
+
+}
+
+.photo_herf {
+  text-align: center;
+  display: block;
+}
+
+@media screen and (max-width: 980px) {
+  .profile_img img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .post_foto img {
+    max-width: 128px;
+    max-height: 128px;
+
+  }
+}
+
+/*----------- Reset Password ----------- */
+
+
+/*----------- Errori ----------- */
+.error {
+  background: #F2DEDE;
+  color: #A94442;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  margin: 20px auto;
+  text-align: center;
+
+}
+
+.error_s {
+  background: #b3ffb3;
+  color: #A94442;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.form_error {
+  background: #F2DEDE;
+  color: #A94442;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  margin: 20px auto;
+  text-align: center;
+}
+/*--------------- Modali per delete ----------------*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  /* Aktivizoni scroll nëse është e nevojshme */
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.6);
+  /*
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+  */
+}
+
+/*  Animation 
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+*/
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 20%;
+}
+
+/* Button */
+.close {
+  color: #aaaaaa;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+/*--------------- Titulli Lëvizës ----------------*/
+@keyframes ticker {
+  0% {
+    transform: translate3d(100, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-120%, 0, 0);
+  }
+}
+
+.TitujtJ_container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.TitujtJ {
+  width: 100%;
+  padding-left: 100%;
+  background-color: lightseagreen;
+  font-size: 40px;
+
+}
+
+.TitujtJ_effect {
+  display: inline-block;
+  white-space: nowrap;
+  padding-right: 100%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: ticker;
+  animation-duration: 10s;
+}
+
+.TitujtJ_effect:hover {
+  animation-play-state: paused;
+}
+
+.TitujtJ_p {
+  display: inline-block;
+  padding: 0 2rem;
+}
+/*--------------- Photo update ----------------*/
+.photo_update {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  /*border: solid 3px red; */
+
+}
+
+.photo_update img {
+  border: 3px black solid;
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px red;
+}
+
+.file_submit {
+  text-align: center;
+}
+
+/*--------------- Stili per krijimin e postimeve ----------------*/
+.center_create_post {
+    padding: 25px 40px;
+    background-color: #232426;
+}
+
+/* Na Kontaktoni (Titulli) */
+.center_create_post h2 {
+    position: relative;
+    padding: 0 0 10px;
+    margin-bottom: 10px;
+    color: white;
+    text-align: center;
+}
+
+.center_create_post h2:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 50px;
+    border-radius: 2px;
+    background-color: red;
+}
+
+/* Inputat (emri,mbiemri,email,tel,sms)  */
+.inputat_create_post {
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    outline: none;
+    background-color: #2b2c2e;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 22px;
+    transition: .3s;
+}
+
+.inputat_create_post:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* messanger   */
+ .center_create_post textarea {
+    min-height: 150px;
+}
+/* Buttoni   */
+#btn_create_post {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: #2b2c2e;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#btn_create_post:hover {
+    background-color: #8B0000;
+}
+
+/* Inputat pasi te klikohen   */
+.inputat_create_post:focus {
+    border: 2px solid rgba(30, 85, 250, 0.47);
+    background-color: #2b2c2e;
+    color: white;
+}
+/*--------------- Stili per mesazhin ----------------*/
+ .contact_box_mesazhi {
+    max-width: 850px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: red;
+    box-shadow: 0px 0px 19px 5px rgba(0, 0, 0, 0.70);
+}
+
+/* Ana e majt  ekontaktrit  */
+.left_mesazhi {
+    background-image: linear-gradient(to right bottom, #ff0000, #d2001f, #a20027, #710826, #420f1d, #36111a, #2a1217, #1e1214, #2f1a1d, #412124, #53292b, #663131);
+    background-size: cover;
+    height: 100%;
+}
+
+/* Ane me djath e kontaktit */
+.right_mesazhi {
+    padding: 25px 40px;
+    background-color: #232426;
+}
+
+/* Na Kontaktoni (Titulli) */
+.contact_box_mesazhi h2 {
+    position: relative;
+    padding: 0 0 10px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.contact_box_mesazhi h2:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 50px;
+    border-radius: 2px;
+    background-color: red;
+}
+
+/* Inputat (emri,mbiemri,email,tel,sms)  */
+.inputat_mesazhi {
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    outline: none;
+    background-color: #2b2c2e;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 22px;
+    transition: .3s;
+}
+
+.inputat_mesazhi:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* messanger   */
+.contact_box_mesazhi textarea {
+    min-height: 150px;
+}
+
+/* Buttoni   */
+#btn_mesazhi {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: #2b2c2e;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#btn_mesazhi:hover {
+    background-color: #8B0000;
+}
+
+/* Inputat pasi te clikohen */
+.inputat_mesazhi:focus {
+    border: 2px solid rgba(30, 85, 250, 0.47);
+    background-color: #2b2c2e;
+    color: white;
+}
+
+/* Nese zvogelohet resulocioni ndryshohet forma  */
+@media screen and (max-width: 880px) {
+    .contact_box_mesazhi {
+        grid-template-columns: 1fr;
+    }
+
+    .left_mesazhi {
+        height: 300px;
+    }
+}
+
