@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\ChangeUserPicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,16 @@ Route::get('/php', function () {
 
 Route::match(["get", "post"],'/home', [ApplicationController::class , 'home'])->name('home');
 
-Route::match(["get","post"],'/about',[ApplicationController::class , 'about'])->name('about');
+Route::get('/about',[ApplicationController::class , 'about'])->name('about');
+Route::post('/login',[ApplicationController::class , 'login'])->name('login');
+
+
+
+//single action controller
+Route::get('/user/pic',ChangeUserPicController::class)->name('userpic');
+
+
+
 
 
 

@@ -1,7 +1,9 @@
+package Variablat2;
 
 public class Variablat {
-	 public static void main (String[] args) {
-		 
+
+	public static void main(String[] arg) {
+		
 		String name = "String - Alpet"; //String vetem per tekts
 		System.out.println(name);
 		
@@ -71,9 +73,6 @@ public class Variablat {
 		 System.out.println(numri3);
 		 System.out.println(numri4);
 		 
-				 
-		 
-	 }
-} 
-  
-
+		
+	}
+}
