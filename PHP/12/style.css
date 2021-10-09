@@ -1,0 +1,64 @@
+
+    /* Jumbotron Postimet */
+    .jumbotron {
+    padding: 13px;
+    border: solid black 1px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    }
+    .display-4 {
+     font-size: 70px;
+}
+    .lead {
+      font-size: 22px;
+      color: black; 
+      font-family: serif;
+}
+    #submit {
+      margin: 10px 0px 10px;
+    }
+
+/*Regjistrimi */
+.body_register{
+      padding: 20px;
+      border: solid grey 1px;
+      width: 800px;
+      border-radius: 5px;
+      background: lightblue;
+    }
+    #btn_register {
+      padding: 6px;
+    }
+    .body_register{
+      margin:auto;
+    }
+
+    /* LOGIN */
+        .body_login{
+      border: solid grey 1px;
+      width: 500px;
+      border-radius: 5px;
+      background: lightblue;
+    }
+    #btn_login {
+      padding: 5px;
+    }
+    .body_login{
+      margin:auto;
+    }
+    .error {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+
+    }
+    .h1_login{
+      text-align: center;
+    }
+    /* Delete ACC btn*/
+    /*btn_search*/
+
