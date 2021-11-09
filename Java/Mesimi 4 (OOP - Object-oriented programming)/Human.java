@@ -49,4 +49,3 @@ public class Human{ //hapja e classes per OOP
 		 
 	 } 
 }
-
