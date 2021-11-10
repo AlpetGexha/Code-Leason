@@ -44,10 +44,3 @@ Route::post('/login',[ApplicationController::class , 'login'])->name('login');
 
 //single action controller
 Route::get('/user/pic',ChangeUserPicController::class)->name('userpic');
-
-
-
-
-
-
-
