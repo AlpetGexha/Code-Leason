@@ -14,21 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('first');
 });
+
+Route::get('/first', function () {
+    return view('welcome');
+})->name('first');
 
 Route::get('/val', function () {
     return view('validate');
-});
+})->name('validate');
 
 Route::get('/q', function () {
     return view('search');
-});
+})->name('search');
 
 Route::get('/ul', function () {
     return view('ul');
-});
+})->name('ul');
 
 Route::get('/alpinejs', function () {
     return view('alpinejs');
-});
+})->name('alpinejs');
