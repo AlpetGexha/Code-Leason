@@ -60,8 +60,9 @@
                         <table class="table table-hover table-striped">
                             <thead>
                                 <tr>
-                                    <th scope="col"><input class="form-check-input" type="checkbox"
-                                            id="flexCheckDefault"></th>
+                                    <th scope="col">
+                                        <input class="form-check-input" wire:model='selectPage'
+                                            type="checkbox" id="flexCheckDefault"></th>
                                     <th scope="col">#
                                         <span wire:click='sortBy("id")' class="float-right text-sm"
                                             style="cursor: pointer">
@@ -86,12 +87,14 @@
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
+                            <button wire:click.prevent='deleteSelectIteams'>Delete</button>
                             {{-- <tbody wire:poll.500ms> --}}
                             <tbody wire:loading.class='text-muted'>
                                 @forelse ($todos as $todo)
                                     {{-- @dd($todos->firstItem()) --}}
                                     <tr>
-                                        <td> <input class="form-check-input" type="checkbox" id="flexCheckDefault">
+                                        <td> <input class="form-check-input" wire:model='selectIteams'
+                                                value="{{ $todo->id }}" type="checkbox" id="flexCheckDefault">
                                         </td>
                                         <td>{{ ($todos->currentPage() - 1) * $todos->perPage() + $loop->iteration }}
                                         </td>

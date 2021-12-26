@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         $f = Faker::create();
         // todo::factory(100)->create();
-        foreach (range(0, 20) as $i) {
+        foreach (range(0, 250) as $i) {
             todo::create([
                 'name' => $f->sentence(15),
                 'action' => $f->randomElement([0, 1])

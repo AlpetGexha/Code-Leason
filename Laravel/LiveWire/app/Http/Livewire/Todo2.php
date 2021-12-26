@@ -20,11 +20,14 @@ class Todo2 extends Component
         $search,
         $pagination = 10,
         $page = 1,
-        $sortColumnName = 'name',
+        $sortColumnName = 'id',
         $sortColumnAction = 'action',
         $sortDirection = 'desc',
         $sordColumnAction,
-        $status = null;
+        $status = null,
+        $selectPage = false,
+        $selectAll = false,
+        $selectIteams = [];
 
     protected $paginationTheme = 'bootstrap';
 
@@ -35,7 +38,7 @@ class Todo2 extends Component
     public $queryString = [
         'search' => ['except' => '', 'as' => 'q'],
         'page' => ['except' => 1, 'as' => 'p'],
-        'sortColumnName' => ['except' => '', 'as' => 'sort'],
+        'sortColumnName' => ['except' => 'id', 'as' => 'sort'],
         'sortDirection' => ['except' => '', 'as' => 'direction'],
 
     ];
@@ -102,6 +105,14 @@ class Todo2 extends Component
         session()->flash('success', 'Todo u fshi me Sukses');
     }
 
+    public function deleteSelectIteams()
+    {
+        todo::whereIn('id', $this->selectIteams)
+            ->delete();
+        $this->selectIteams = [];
+        $this->selectAll = false;
+    }
+
     public function sortBy($columnName)
     {
         // dd('here');
@@ -131,20 +142,39 @@ class Todo2 extends Component
         $completedCount = todo::where('action', '1')->count();
         $unCompletedCount = todo::where('action', '0')->count();
         return view('livewire.todo2', [
-            'todos' =>  todo::where('name', 'like', '%' . $this->search . '%')
-                ->when($this->status, function ($query, $status) {
-                    return $query->where('action', $this->status);
-                })
-                ->orderBy($this->sortColumnName, $this->sortDirection)
-                ->paginate($this->pagination),
+            'todos' =>  $this->todosDB,
             'todoCount' => $todoCount,
             'completedCount' => $completedCount,
             'unCompletedCount' => $unCompletedCount,
         ]);
     }
+    public  $todosDB = todo::where('name', 'like', '%' . $this->search . '%')
+        ->when($this->status, function ($query, $status) {
+            return $query->where('action', $this->status);
+        })
+        ->orderBy($this->sortColumnName, $this->sortDirection)
+        ->paginate($this->pagination);
 
     public function updated($validate)
     {
         $this->validateOnly($validate);
+    }
+
+    public function updatedSelectPage($value)
+    {
+        if ($value) {
+            $this->selectIteams = $this->todosDB->pluck('id')->map(fn ($id) => (string) $id)->toArray();
+        } else {
+            $this->selectIteams = [];
+        }
+    }
+
+    public function updatedSelectAll($value)
+    {
+        if ($value) {
+            $this->selectIteams = todo::pluck('id');
+        } else {
+            $this->selectIteams = [];
+        }
     }
 }
