@@ -16,6 +16,8 @@
         <li><a href="{{ route('search') }}">Search</a></li>
         <li> <a href="{{ route('ul') }}">UI NICETIES </a></li>
         <li> <a href="{{ route('alpinejs') }}">AplineJS</a> </li>
+        <li> <a href="{{ route('todo2') }}">Todo table 2</a> </li>
+        <li> <a href="{{ route('todo') }}">Todo table testing</a> </li>
     </ul>
 </body>
 

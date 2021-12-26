@@ -36,3 +36,11 @@ Route::get('/ul', function () {
 Route::get('/alpinejs', function () {
     return view('alpinejs');
 })->name('alpinejs');
+
+Route::get('/todo', function () {
+    return view('todo');
+})->name('todo');
+
+Route::get('/todo2', function () {
+    return view('todo2');
+})->name('todo2');

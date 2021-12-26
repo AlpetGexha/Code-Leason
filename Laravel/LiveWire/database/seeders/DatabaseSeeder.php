@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\todo;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +15,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $f = Faker::create();
+        // todo::factory(100)->create();
+        foreach (range(0, 20) as $i) {
+            todo::create([
+                'name' => $f->sentence(15),
+                'action' => $f->randomElement([0, 1])
+            ]);
+        }
     }
 }

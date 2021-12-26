@@ -12,9 +12,9 @@
 <body>
     <div> live time {{ now() }} </div>
     @livewire('search.query')
-<br><br>
-<h3>Flash SMS</h3>
-@livewire('flash.flash')
+    <br><br>
+    <h3>Flash SMS</h3>
+    @livewire('flash.flash')
 
     @livewireScripts
 </body>
