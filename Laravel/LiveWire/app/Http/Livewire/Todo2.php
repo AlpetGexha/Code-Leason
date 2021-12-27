@@ -161,7 +161,7 @@ class Todo2 extends Component
 
     public function selectAllOnSearch()
     {
-           $this->selectIteams = todo::where('name', 'like', '%' . $this->search . '%')
+        $this->selectIteams = todo::where('name', 'like', '%' . $this->search . '%')
             ->when($this->status, function ($query, $status) {
                 return $query->where('action', $this->status);
             })
@@ -173,7 +173,17 @@ class Todo2 extends Component
     public function selectAll()
     {
         $this->selectIteams = todo::pluck('id');
+    }
 
+    public function selectAllHere()
+    {
+        $this->selectIteams = todo::where('name', 'like', '%' . $this->search . '%')
+            ->when($this->status, function ($query, $status) {
+                return $query->where('action', $this->status);
+            })
+            ->pluck('id');
+        $this->selectAll = false;
+        $this->selectPage = false;
     }
 
     public function updatedSelectPage($value)

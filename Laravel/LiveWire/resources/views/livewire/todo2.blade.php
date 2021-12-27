@@ -105,6 +105,8 @@
                                         <button class="btn btn-primary" wire:click.prevent='selectAllOnSearch'>Select
                                             All with search</button>
                                     @endif
+                                    <button class="btn btn-primary" wire:click.prevent='selectAllHere'>Select All
+                                        Here</button>
                                 </div>
                                 <button class="btn btn-danger" wire:click.prevent='deleteSelectIteams'>Delete
                                     Selection {{ count($selectIteams) }}
