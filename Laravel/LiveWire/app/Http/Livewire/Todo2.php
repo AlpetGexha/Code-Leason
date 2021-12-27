@@ -12,18 +12,21 @@ class Todo2 extends Component
 {
     use WithPagination;
     public
-        $i = 1,
+        // DB table 
         $ids,
         $name,
         $action,
         $created_at,
+        // Search
         $search,
-        $pagination = 10,
         $page = 1,
+        $pagination = 10, // PaginationPageLimit
+        // Sort
         $sortColumnName = 'id',
-        $sortColumnAction = 'action',
         $sortDirection = 'desc',
+        $sortColumnAction = 'action',
         $status = null,
+        // Selection
         $selectPage = false,
         $selectAll = false,
         $selectIteams = [];
@@ -80,6 +83,14 @@ class Todo2 extends Component
         }
     }
 
+    public function delete($id)
+    {
+        todo::where('id', $id)
+            ->first()
+            ->delete();
+        session()->flash('success', 'Todo u fshi me Sukses');
+    }
+
     public function completed($id)
     {
         $todos = todo::find($id);
@@ -96,23 +107,6 @@ class Todo2 extends Component
         session()->flash('success', 'Todo nuk u krye ');
     }
 
-    public function delete($id)
-    {
-        todo::where('id', $id)
-            ->first()
-            ->delete();
-        session()->flash('success', 'Todo u fshi me Sukses');
-    }
-    public $deleteSelectIteamsCount;
-    public function deleteSelectIteams()
-    {
-        todo::whereIn('id', $this->selectIteams)
-            ->delete();
-        $this->selectIteams = [];
-        $this->selectAll = false;
-        $this->selectPage = false;
-    }
-
     public function sortBy($columnName)
     {
         // dd('here');
@@ -122,52 +116,6 @@ class Todo2 extends Component
             $this->sortDirection = 'asc';
         }
         $this->sortColumnName = $columnName;
-    }
-
-
-    // restarto numrin e faqeve kur behet serach
-    public function updatedSearch()
-    {
-        $this->resetPage();
-    }
-    public function filterTodosByStatus($status = null)
-    {
-        $this->resetPage();
-
-        $this->status = $status;
-    }
-    public function render()
-    {
-        $todoCount = todo::count();
-        $completedCount = todo::where('action', '1')->count();
-        $unCompletedCount = todo::where('action', '0')->count();
-        return view('livewire.todo2', [
-            'todos' =>   todo::where('name', 'like', '%' . $this->search . '%')
-                ->when($this->status, function ($query, $status) {
-                    return $query->where('action', $this->status);
-                })
-                ->orderBy($this->sortColumnName, $this->sortDirection)
-                ->paginate($this->pagination),
-            'todoCount' => $todoCount,
-            'completedCount' => $completedCount,
-            'unCompletedCount' => $unCompletedCount,
-        ]);
-    }
-
-    public function updated($validate)
-    {
-        $this->validateOnly($validate);
-    }
-
-    public function selectAllOnSearch()
-    {
-        $this->selectIteams = todo::where('name', 'like', '%' . $this->search . '%')
-            ->when($this->status, function ($query, $status) {
-                return $query->where('action', $this->status);
-            })
-            ->pluck('id');
-        $this->selectAll = false;
-        $this->selectPage = false;
     }
 
     public function selectAll()
@@ -186,6 +134,39 @@ class Todo2 extends Component
         $this->selectPage = false;
     }
 
+    public function selectAllOnSearch()
+    {
+        $this->selectIteams = todo::where('name', 'like', '%' . $this->search . '%')
+            ->when($this->status, function ($query, $status) {
+                return $query->where('action', $this->status);
+            })
+            ->pluck('id');
+
+        $this->selectAll = false;
+        $this->selectPage = false;
+    }
+    public function deleteSelectIteams()
+    {
+        todo::whereIn('id', $this->selectIteams)
+            ->delete();
+        $word = '';
+        if ($this->selectIteams > 1) {
+            $word = 'fshie';
+        } else {
+            $word = 'fshien';
+        }
+
+        session()->flash('success', ' ' . count($this->selectIteams) . ' todo u ' . $word . '  me success');
+        $this->selectIteams = [];
+        $this->selectAll = false;
+        $this->selectPage = false;
+    }
+
+    public function updated($validate)
+    {
+        $this->validateOnly($validate);
+    }
+
     public function updatedSelectPage($value)
     {
         if ($value) {
@@ -199,5 +180,35 @@ class Todo2 extends Component
         } else {
             $this->selectIteams = [];
         }
+    }
+
+    // restarto numrin e faqeve kur behet serach
+    public function updatedSearch()
+    {
+        $this->resetPage();
+    }
+    public function filterTodosByStatus($status = null)
+    {
+        $this->resetPage();
+
+        $this->status = $status;
+    }
+
+    public function render()
+    {
+        $todoCount = todo::count();
+        $completedCount = todo::where('action', '1')->count();
+        $unCompletedCount = todo::where('action', '0')->count();
+        return view('livewire.todo2', [
+            'todos' =>   todo::where('name', 'like', '%' . $this->search . '%')
+                ->when($this->status, function ($query, $status) {
+                    return $query->where('action', $this->status);
+                })
+                ->orderBy($this->sortColumnName, $this->sortDirection)
+                ->paginate($this->pagination),
+            'todoCount' => $todoCount,
+            'completedCount' => $completedCount,
+            'unCompletedCount' => $unCompletedCount,
+        ]);
     }
 }

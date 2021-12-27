@@ -10,8 +10,8 @@
                         {{ session('success') }}
                     </div>
                 @endif
-                <p> Live Time Livewire: {{ now() }}</p>
                 <div class="card">
+                    <p> Live Time Livewire: {{ now() }}</p>
                     <div class="card-header">
                         <h3>Todo List</h3>
                     </div>
