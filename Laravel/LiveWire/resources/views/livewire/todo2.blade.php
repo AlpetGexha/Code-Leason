@@ -2,7 +2,7 @@
     @include('livewire.todo.create')
     @include('livewire.todo.update')
     @include('livewire.todo.show')
-    <div class="container mt-5 p-1">
+    <div class="container mt-5 mb-5 p-1">
         <div class="row">
             <div class="col-md-12">
                 @if (session()->has('success'))
@@ -20,50 +20,60 @@
                             data-bs-target="#createTodo">
                             Krijo Todo
                         </button>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <input wire:model='search' type="search" placeholder="Kerko" class="form-control">
-                            </div>
-                            <div class="col-md-2">
-                                <select wire:model='pagination' class="form-select">
-                                    <option value="10">10</option>
-                                    <option value="25">25</option>
-                                    <option value="50">50</option>
-                                    <option value="150">150</option>
-                                    <option value="200">200</option>
-                                    <option value="300">300</option>
-                                </select>
+                        {{-- <div class="d-flex justify-content-around"></div> --}}
+                        <div class="col-md-12 mt-1 mb-3">
+                            <div class="row">
+                                <div class="col-md-2 mt-2">
+                                    <select wire:model='pagination' class="form-select">
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="150">150</option>
+                                        <option value="200">200</option>
+                                        <option value="300">300</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-7 mt-2">
+                                    <div class="btn-group d-flex" role="group" aria-label="Basic outlined example"">
+                                        <button wire:click=" filterTodosByStatus" type="button"
+                                        class="btn {{ is_null($status) ? 'btn-outline-primary' : 'btn-defaults' }}">
+                                        <span class="mr-1">All Task</span>
+                                        <span style="color: red;"
+                                            class="badge badge-pill badge-info">{{ $todoCount }}</span>
+                                        </button>
+
+                                        <button wire:click="filterTodosByStatus('1')" type="button"
+                                            class="btn {{ $status === '1' ? 'btn-outline-primary' : 'btn-default' }}">
+                                            <span class="mr-1">Completed</span>
+                                            <span style="color: red;"
+                                                class="badge badge-pill badge-primary">{{ $completedCount }}</span>
+                                        </button>
+
+                                        <button wire:click.prevent="filterTodosByStatus('false')" type="button"
+                                            class="btn {{ $status === '0' ? 'btn-outline-primary' : 'btn-default' }}">
+                                            <span class="mr-1">UnCompleted</span>
+                                            <span style="color: red;"
+                                                class="badge badge-pill badge-success">{{ $unCompletedCount }}</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 mt-2">
+                                    <input wire:model='search' type="search" placeholder="Kerko" class="form-control">
+                                </div>
                             </div>
                         </div>
-                        All task : {{ $todoCount }}
-                        <div class="btn-group d-flex" role="group" aria-label="Basic outlined example"">
-                            <button wire:click=" filterTodosByStatus" type="button"
-                            class="btn {{ is_null($status) ? 'btn-outline-primary' : 'btn-defaults' }}">
-                            <span class="mr-1">All Task</span>
-                            <span style="color: red;" class="badge badge-pill badge-info">{{ $todoCount }}</span>
-                            </button>
 
-                            <button wire:click="filterTodosByStatus('1')" type="button"
-                                class="btn {{ $status === '1' ? 'btn-outline-primary' : 'btn-default' }}">
-                                <span class="mr-1">Completed</span>
-                                <span style="color: red;"
-                                    class="badge badge-pill badge-primary">{{ $completedCount }}</span>
-                            </button>
-
-                            <button wire:click.prevent="filterTodosByStatus('false')" type="button"
-                                class="btn {{ $status === '0' ? 'btn-outline-primary' : 'btn-default' }}">
-                                <span class="mr-1">UnCompleted</span>
-                                <span style="color: red;"
-                                    class="badge badge-pill badge-success">{{ $unCompletedCount }}</span>
-                            </button>
-                        </div>
-                        <table class="table table-hover table-striped">
+                        {{-- All task : {{ $todoCount }}  table-bordered --}}
+                        <table class="table table-hover table-striped ">
                             <thead>
                                 <tr>
                                     <th scope="col">
-                                        <input class="form-check-input" wire:model='selectPage'
-                                            type="checkbox" id="flexCheckDefault"></th>
-                                    <th scope="col">#
+                                        <input class="form-check-input" wire:model='selectPage' type="checkbox"
+                                            id="flexCheckDefault">
+                                    </th>
+                                    <th width='6%'>#
                                         <span wire:click='sortBy("id")' class="float-right text-sm"
                                             style="cursor: pointer">
                                             <i
@@ -73,7 +83,7 @@
                                         </span>
                                     </th>
                                     <th scope="col">Task
-                                        <span wire:click='sortBy("name")' class="float-right text-sm"
+                                        <span wire:click='sortBy("name")' class="text-sm"
                                             style="cursor: pointer">
                                             <i
                                                 class="fa fa-arrow-up {{ $sortColumnName === 'name' && $sortDirection === 'asc' ? '' : 'text-muted' }}"></i>
@@ -87,7 +97,20 @@
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
-                            <button wire:click.prevent='deleteSelectIteams'>Delete</button>
+
+                            @if ($selectPage || $selectIteams)
+                                <div class="alert alert-info">
+                                    <button class="btn btn-primary" wire:click.prevent='selectAll'>Select All</button>
+                                    @if ($search)
+                                        <button class="btn btn-primary" wire:click.prevent='selectAllOnSearch'>Select
+                                            All with search</button>
+                                    @endif
+                                </div>
+                                <button class="btn btn-danger" wire:click.prevent='deleteSelectIteams'>Delete
+                                    Selection {{ count($selectIteams) }}
+                                </button>
+                            @endif
+
                             {{-- <tbody wire:poll.500ms> --}}
                             <tbody wire:loading.class='text-muted'>
                                 @forelse ($todos as $todo)
@@ -98,7 +121,7 @@
                                         </td>
                                         <td>{{ ($todos->currentPage() - 1) * $todos->perPage() + $loop->iteration }}
                                         </td>
-                                        <td>{{ $todo->name }}</td>
+                                        <td>@if ($todo->action == 1) <del>{{ $todo->name }}</del>@else {{ $todo->name }} @endif </td>
                                         <td>
                                             @if ($todo->action == 1)
                                                 <span class="badge badge-sm bg-success">Complete</span>
