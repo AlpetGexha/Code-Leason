@@ -70,8 +70,8 @@ class Todo2 extends Component
     public function update()
     {
         $this->validate();
-        if ($this->id) {
-            $todo = todo::find($this->id);
+        if ($this->ids) {
+            $todo = todo::find($this->ids);
             $todo->update([
                 'name' => $this->name,
             ]);
