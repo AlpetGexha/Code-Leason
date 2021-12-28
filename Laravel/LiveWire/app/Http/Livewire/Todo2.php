@@ -129,7 +129,7 @@ class Todo2 extends Component
             ->when($this->status, function ($query, $status) {
                 return $query->where('action', $this->status);
             })
-            ->pluck('id');
+            ->pluck('id')->map(fn ($id) => (string) $id);
         $this->selectAll = false;
         $this->selectPage = false;
     }
@@ -147,8 +147,7 @@ class Todo2 extends Component
     }
     public function deleteSelectIteams()
     {
-        todo::whereIn('id', $this->selectIteams)
-            ->delete();
+        todo::whereIn('id', $this->selectIteams)->delete();
         $word = '';
         if ($this->selectIteams > 1) {
             $word = 'fshie';
