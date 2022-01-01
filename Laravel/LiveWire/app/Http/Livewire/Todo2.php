@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 // setlocale(LC_ALL, 'al');
 
 use App\Models\todo;
+use Facade\FlareClient\Http\Response;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -29,7 +30,8 @@ class Todo2 extends Component
         // Selection
         $selectPage = false,
         $selectAll = false,
-        $selectIteams = [];
+        $selectIteams = [],
+        $selectColums = [];
 
     protected $paginationTheme = 'bootstrap';
 
@@ -45,6 +47,15 @@ class Todo2 extends Component
         'status' => ['except' => '', 'as' => 'action'],
     ];
 
+    public $columns = ['Id', 'Task', 'Action', 'CreatedAt', 'Options'];
+    public function mount()
+    {
+        $this->selectColums = $this->columns;
+    }
+    public function showColumn($column)
+    {
+        return in_array($column, $this->selectColums);
+    }
     public function blankFild()
     {
         $this->name = '';
@@ -148,14 +159,8 @@ class Todo2 extends Component
     public function deleteSelectIteams()
     {
         todo::whereIn('id', $this->selectIteams)->delete();
-        $word = '';
-        if ($this->selectIteams > 1) {
-            $word = 'fshie';
-        } else {
-            $word = 'fshien';
-        }
 
-        session()->flash('success', ' ' . count($this->selectIteams) . ' todo u ' . $word . '  me success');
+        session()->flash('success', ' ' . count($this->selectIteams) . ' todo u fshien  me success');
         $this->selectIteams = [];
         $this->selectAll = false;
         $this->selectPage = false;
@@ -164,6 +169,10 @@ class Todo2 extends Component
     public function updated($validate)
     {
         $this->validateOnly($validate);
+    }
+
+    public function UpdatedSelection()
+    {
     }
 
     public function updatedSelectPage($value)

@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9eaa633b-3441-404f-bcc1-bdec57c8e07c" name="Changes" comment="" />
+    <list default="true" id="9eaa633b-3441-404f-bcc1-bdec57c8e07c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LiveWire/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/LiveWire/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LiveWire/app/Http/Livewire/Todo2.php" beforeDir="false" afterPath="$PROJECT_DIR$/LiveWire/app/Http/Livewire/Todo2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LiveWire/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/LiveWire/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LiveWire/resources/views/livewire/todo2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/LiveWire/resources/views/livewire/todo2.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +29,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/LiveWire" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -35,6 +42,7 @@
       <updated>1637787752897</updated>
       <workItem from="1637787765696" duration="130000" />
       <workItem from="1638557942113" duration="9000" />
+      <workItem from="1641044481273" duration="94000" />
     </task>
     <servers />
   </component>
