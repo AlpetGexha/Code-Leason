@@ -44,3 +44,7 @@ Route::get('/todo', function () {
 Route::get('/todo2', function () {
     return view('todo2');
 })->name('todo2');
+
+Route::get('/editor', function () {
+    return view('ckeditor');
+})->name('ckeditor');

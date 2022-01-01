@@ -18,6 +18,7 @@
         <li> <a href="{{ route('alpinejs') }}">AplineJS</a> </li>
         <li> <a href="{{ route('todo2') }}">Todo table 2</a> </li>
         <li> <a href="{{ route('todo') }}">Todo table testing</a> </li>
+        <li> <a href="{{ route('ckeditor') }}">CKEsditor</a> </li>
     </ul>
 </body>
 
