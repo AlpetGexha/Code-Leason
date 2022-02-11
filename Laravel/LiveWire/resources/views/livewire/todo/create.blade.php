@@ -12,7 +12,7 @@
                 <form action="">
                     <div class="form-grup">
                         <label for="task">Shrani tasken</label>
-                        <input autofocus="yes" autocomplete="no" type="text" class="form-control" wire:model='name' />
+                        <input id='text-editor' autofocus="yes" autocomplete="no" type="text" class="form-control" data-note="@this" wire:model.defer='name' />
                         @error('name') <span style="color: red;">{{ $message }} </span> @enderror
                     </div>
                 </form>
