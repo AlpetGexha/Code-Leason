@@ -1,0 +1,260 @@
+:root {
+    --main: #60c689;
+    --blue: #00FFFF;
+    --gray: #495057;
+    --white: #bebebe;
+    --red: #e3342f;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/*--------------------------------------------------------------
+# Scroll Bari
+--------------------------------------------------------------*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+    width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: white;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #bebebe;
+    border-radius: 25px;
+}
+
+html ::selection {
+    color: black;
+    background: var(--white);
+}
+
+/*--------------------------------------------------------------
+# Elemetni i pare tekst
+--------------------------------------------------------------*/
+
+p:first-of-type::first-letter {
+    float: left;
+    padding: 5px 30px 15px;
+    margin-top: -40px;
+    margin-right: 16px;
+    font-family: "Alliance No.2", "Alliance No.1", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 105px;
+    line-height: 1em;
+    color: var(--blue);
+    background: none;
+    border: 5px solid #60c689;
+    border-image: linear-gradient(135deg, #000000, var(--blue)) 10;
+}
+
+/*--------------------------------------------------------------
+# Target pasi ta klikon ne link
+--------------------------------------------------------------*/
+
+:target {
+    margin-top: 25px;
+    font-size: 21px;
+    text-align: center;
+    animation: fadein 2s;
+    color: var(--blue);
+    -webkit-animation: fadein 2s;
+}
+
+/*
+    Animacioni Fade
+*/
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*--------------------------------------------------------------
+# After dhe Before
+--------------------------------------------------------------*/
+
+h2::before {
+    content: " before - ";
+    color: var(--gray)
+}
+
+h2::after {
+    content: " - after ";
+    color: var(--red);
+
+}
+
+/*--------------------------------------------------------------
+# Main Style
+--------------------------------------------------------------*/
+
+li::marker {
+    color: #ff4747;
+
+}
+
+/*--------------------------------------------------------------
+# Main Style
+--------------------------------------------------------------*/
+
+h2::selection {
+    color: red;
+    background-color: black;
+}
+
+/*--------------------------------------------------------------
+# Main Style
+--------------------------------------------------------------*/
+
+/* 
+    vetem elemenit i par ne h2
+ */
+h2:nth-child(1) {
+    color: var(--blue);
+}
+
+/* 
+    vetem elementi i parë në classen hello-list 
+*/
+.hello-list h2:nth-child(3) {
+    color: var(--blue);
+}
+
+/* 
+    odd 1 po 1 jo 
+*/
+h2:nth-child(odd) {
+    color: var(--red);
+}
+
+/* 
+    even 1 jo 1 po 
+*/
+h2:nth-child(even) {
+    color: var(--main);
+}
+
+/*--------------------------------------------------------------
+# Hover effect
+--------------------------------------------------------------*/
+
+.box:hover {
+    background-color: var(--main);
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+# Pasi te preket inputi
+--------------------------------------------------------------*/
+
+.focus:focus {
+    background-color: var(--main);
+}
+
+/*--------------------------------------------------------------
+# Vetem inputat opsional
+--------------------------------------------------------------*/
+
+input:optional {
+    background-color: var(--blue);
+}
+
+/*--------------------------------------------------------------
+# Main Style
+--------------------------------------------------------------*/
+
+.container {
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 0 15px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+
+}
+
+.box {
+    width: 300px;
+    height: 300px;
+    background-color: #00FFFF;
+    border: solid 1px var(--blue);
+    border-radius: 7px;
+}
+
+.form-control {
+    display: block;
+    width: 30%;
+    min-height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+h3 {
+    position: relative;
+    font-family: Lato;
+    font-weight: 300;
+    display: inline-block;
+    color: #222;
+    font-size: 40px;
+    margin: 30px;
+    border-left: solid 1px var(--red);
+    border-right: solid 1px var(--red);
+    padding: 0 10px;
+    text-align: center;
+}
+
+h3:before,
+h3:after {
+    position: absolute;
+    content: "";
+    border-bottom: 1px solid var(--red);
+    width: 30px;
+    bottom: 23px
+}
+
+h3:before {
+    left: -30px
+}
+
+h3:after {
+    right: -30px
+}
+
+body{
+    background-color: #f8f9fa;
+}
+
+body a {
+    text-decoration: none;
+    transition: 0.5s all;
+    color: var(--main);
+    -webkit-transition: 0.5s all;
+}
