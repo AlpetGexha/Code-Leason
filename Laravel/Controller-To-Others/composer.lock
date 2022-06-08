@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6de37c30df2b4be1c99b5fb1cafc5689",
+    "content-hash": "6da2fbb0694ab9eff8bb33b4fd32793f",
     "packages": [
         {
             "name": "brick/math",
@@ -507,6 +507,65 @@
                 }
             ],
             "time": "2022-02-20T15:07:15+00:00"
+        },
+        {
+            "name": "getsolaris/laravel-make-service",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/getsolaris/laravel-make-service-command.git",
+                "reference": "5d8f378a7e4de5899c95fe8810140d55e3eb3638"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/getsolaris/laravel-make-service-command/zipball/5d8f378a7e4de5899c95fe8810140d55e3eb3638",
+                "reference": "5d8f378a7e4de5899c95fe8810140d55e3eb3638",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "~5.6.34|~5.7.0|~5.8.0|^6.0|^7.0|^8.0|^9.0",
+                "illuminate/support": "~5.6.34|~5.7.0|~5.8.0|^6.0|^7.0|^8.0|^9.0",
+                "php": "^7.1|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Getsolaris\\LaravelMakeService\\LaravelMakeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Getsolaris\\LaravelMakeService\\": "src/"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mingeun Kim",
+                    "email": "mingeun.k.k@gmail.com"
+                }
+            ],
+            "description": "A MVCS pattern create a service command for Laravel 5+",
+            "keywords": [
+                "contract",
+                "laravel",
+                "mvcs",
+                "pattern",
+                "service"
+            ],
+            "support": {
+                "issues": "https://github.com/getsolaris/laravel-make-service-command/issues",
+                "source": "https://github.com/getsolaris/laravel-make-service-command/tree/v1.0.3"
+            },
+            "time": "2022-02-09T04:39:35+00:00"
         },
         {
             "name": "graham-campbell/result-type",
