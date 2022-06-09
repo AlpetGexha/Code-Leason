@@ -1,66 +1,24 @@
-1.  
-
-  
+1.
 
 <!DOCTYPE html> - //FILLIMI I SHTRIMIT  
 
-  
-
 <html> - //nisja   
 
-  
-
-   
-
-  
 
 </html> //mbaron  
 
-  
-
-   
-
-  
-
 <head> -//koka (tab)  
 
-  
-
-   
-
-  
 
 <body> - //trupi(Shrimi)  
 
-  
-
-   
-
-  
 
 <p> - //paragrafi  
 
-  
-
-   
-
-  
 
 <h1-h6> - //madhësia e shronjave  
 
-  
-
-   
-
-  
-
-<h1-h6 style="color:red">// nqyra e shronjave  
-
-  
-
-   
-
-  
+<h1-h6 style="color:red">// nqyra e shronjave
 
 <b> - //shronjat me te zeza  
 
@@ -96,67 +54,63 @@
 
 <abbr title="1"> 2 </abbr> // Emri ne selectim 
 
-   
 
-  
+
+
 
 <ul>  
 
-  
+
 
   <li>Tekts</li> -// Teksti me Pike *  
 
-  
+
 
   <li>Tekts</li>  
 
-  
+
 
   <li>Tekts</li>  
 
-  
+
 
 </ul>                    
 
-  
 
-   
 
-  
+
+
+
 
 <ol>  
 
-  
+
 
   <li>Tekts</li> - //Teksti me Numra (1,2,3...)  
 
-  
+
 
   <li>Tekts</li>  
 
-  
+
 
   <li>Tekts</li>  
 
-  
+
 
 </ol>  
 
-  
 
- 
 
-  
+
+
+
 
 <table>  // haja e tabeles 
 
 <tr> tekst</tr > 
 
  </table> 
-
-   
-
-  
 
     <th>1+X=Y</th> //Shronjat me trasha ne tabel 
 
@@ -174,11 +128,11 @@
 
 </tr> 
 
-  
+
 
 <tr>  
 
-  
+
 
 <td>Y</td>      
 
@@ -190,7 +144,7 @@
 
 <td>5</td>  
 
- 
+
 
   <dl>  
 
@@ -200,69 +154,63 @@
 
 </dl> 
 
- 
 
-  
+
+
 
 <body style="background-color: red;"> //nqyra e backraundit  
 
-  
 
-   
 
-  
+
+
+
 
 <center> //midis  
 
-  
 
-   
 
-  
+
+
+
 
 <a herf> //linku  
 
-  
 
-   
 
-  
 
-<button>Click me</button> - //butoni  
 
-  
 
-   
 
-  
+<button>Click me</button> - //butoni
 
-<img src="foto.png"(ligu i fotos) alt="foto.com" (Emri ne foto) width="104" height="142"> (Vendi)  
+<img src="foto.png"(ligu i fotos) alt="foto.com" (Emri ne foto) width="104" height="142"> (Vendi)
 
-  
+
 
 <!-- id (tab i ri) --> 
 
-  
+
 
 <a href="https://www.Google.com/" target="_blank"> <h1>Google 2</h1> </a> 
 
-  
+
 
 <!-- Images --> 
 
-  
+
 
 <img src="curry.jpg" width="1100px" height="800px"> 
 
-  
 
- <a href="#top">top</a><br> 
 
-  
+<a href="#top">top</a><br>
+
+
 
   <!-- comment -->  
 
-  
+
 
    <audio controls="">                          //Audio mp3 
 
@@ -270,7 +218,7 @@
 
 </audio>  
 
-  
+
 
 <video controls=""  >             //Video mp4 
 
@@ -278,61 +226,39 @@
 
     </video>  
 
-  
+Për video direkt te youtubit Copy embad code
 
-Për video direkt te youtubit  Copy embad code  
+Ose <iframe src=" linku "></iframe>
 
-Ose <iframe src=" linku "></iframe> 
 
- 
 
  <form> //forma 
 
     <fieldset>//disanji per login 
 
- 
-
 <legend>Persoal info</legend> //shrojnat nalt disanjit 
 
- 
+
 
 <label> //shkrimi 
 
-   
 
-<input type="text"//forma si text 
 
- 
+<input type="text"//forma si text
 
-<input type="email" //forma emaili 
+<input type="email" //forma emaili
 
- 
+<input type="Password" //forma e passit
 
-<input type="Password" //forma e passit 
+name=""
 
- 
+required="" //e nevojsheme
 
- name="" 
+placeholder="First Name" > //Emir para prekjes
 
- 
+Size="10" //madhësia
 
- required="" //e  nevojsheme 
-
- 
-
-placeholder="First Name" > //Emir para prekjes  
-
- 
-
-Size="10" //madhësia 
-
- 
-
- 
-
- 
-
-<select></select> me selelktim 
+<select></select> me selelktim
 
     <option>Gjakova</option>  //opsionet  
 
@@ -342,9 +268,8 @@ Size="10" //madhësia
 
   <option disabled="select"> Select </option>  opsion I  bllkokuar 
 
- 
 
- 
+
 
 <label> Mashkull </label>   
 
@@ -356,27 +281,6 @@ Size="10" //madhësia
 
  
 
-  
-
-   
-
-  
-
-   
-
-  
-
-   
-
-  
-
-   
-
-  
-
-  
-
- 
 
  
 
