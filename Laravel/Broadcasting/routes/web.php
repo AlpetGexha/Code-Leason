@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\SendText;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/event', function (\Illuminate\Http\Request $r) {
+    event(new SendText("Alpet1"));
+})->name('event');
+
+Route::get('/listen', function () {
     return view('welcome');
 });
 
