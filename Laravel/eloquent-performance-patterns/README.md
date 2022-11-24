@@ -1,66 +1,178 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Nese OrderBy('name') ka query time te madh:
+Atehere shto nje migrate database dhe beje "name" si index
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+    $table->index('name')
 
-## About Laravel
+I Selectojm vetem fildat qe na nevotinten
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+```php
+    $post = Post::select('id','title','slug')->get()
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Per te marre vetem nje fiel nga hasMany:
+Mund te perdorim subQuery
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+````php
+    public function scopeWithLastLogin($query)
+    {
+        return $query->addSelect([
+            'last_login_at' => Login::select('created_at')
+                ->where('user_id', 'user.id')
+                ->lates()
+                ->take(1)
+        ])->withCasts(['last_login_at' => 'datatime']); // make last_login_at valid for diffForHumans
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+    $user = User::query()
+        ->withLastLogin()
+        ->orderBy('name')
+        ->paginate()
+    }
+    ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Nese Deshirom te marrin numrin e disa parametrave ne database pershembull (Sa usera i Activ,JoActiv, Qe jane verifukuar etj)
+Qe te mos perdorim me shume se 4query atehere e mund te perdorim Dinacmi "Conditional Aggregates"
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```php
+     $stats = ModelsUser::toBase()
+            ->selectRaw('count(id) as total')
+            ->selectRaw('count(case when is_verified = 1 then 1 end) as verified')
+            ...
+            ->first();
+````
 
-## Laravel Sponsors
+Për performac të modeleve e perdorim toBase()
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Nese kemi nevoj per te bere load me shume se 2 relacine te njejta (Ne kometin e nje blogi autorit ti ipet begi Author dhe Userave te tjer begi momental)
 
-### Premium Partners
+```php
+$blog->loads('comments.users','comments.replys','comments.feature') // Shtojm 3fishin e modeleve te nevoitura
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Per ta rregulluar kete perdorim setRelacion()
 
-## Contributing
+```php
+    $blog->comments->each->setRelacion('user',$user)
+    $blog->comments->each->setRelacion('replys',$replys)
+    $blog->comments->each->setRelacion('feature',$feature)
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Dhe do ta shikojm se numri i Modeleve eshte stabil
 
-## Code of Conduct
+Nje Metod me e mire per ta perdorur ne vet te `whereHas()` ose `orWhereHas()`
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```php
+    $query->whereHas('comapanys', fn($q) => $q->where('name', 'like' ,$name)) // me whereHas
+```
 
-## Security Vulnerabilities
+Per kete duhet te shtohen edhe index per cdo field qe deshirom te bejme search
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```php
+$name = $name.'%'
+    $query->whereIn(
+        'company_id', fn($q) =>$q->select('id')->from('comapanys')->where('name','like',$name)
+)
 
-## License
+    $query->orWhereIn(
+        'company_id', fn($q) =>$q->select('id')->from('comapanys')->where('name','like',$name)
+)
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Dallimi eshte te shpejtesia e performancave
+
+Nje metod edhe me e shpejt
+
+```php
+$name = $name.'%'
+    $query->whereIn(
+        'company_id', fn($q) =>$q->select('id')->from('comapanys')->where('name','like',$name)
+)
+
+    $query->orWhereIn(
+        'company_id', Company::query()->where('name','like',$name)->pluck('id');
+)
+```
+
+Menyra me e optimizuar per te renditur hasMany relacionet (Subquery)
+
+```php
+$users = User::query()
+        ->orderByDesc(Login::select('created_at')
+            ->whereColumn('user_id', 'users.id')
+            ->latest()
+            ->take(1)
+        )
+        ->withLastLogin()
+        ->paginate();
+
+```
+
+Rrathiti te dhenat qe jane null ne fund
+
+```php
+    $books = Book::query()
+        ->orderByRaw('user_id is null') // nese user_id eshte null te gjitha te dhenat qe jane null rrathiti ne fund
+        ->orderBy('name')
+
+// With  filter
+    $books = Book::query()
+        ->when(request('filter') === 'sortBy',function($q){
+            $q->orderByRaw('user_id is null')
+        })
+        ->orderBy('name')
+```
+
+<!-- Short Macro -->
+
+ne App Service Provaider
+
+```php
+    public function boot()
+    {
+        Builder::macro('orderByNullLast', function($colum, $direction = 'asc'){
+            $colum = $this->getGrammar()->wrap($colum);
+            $direction = strtolower($direction) === 'asc' ? 'asc' : 'desc';
+            return $this->orderByRaw("{$colum} {$direction} nulls last");});
+    }
+
+    // ne controller
+    $books = Book::query()
+        ->when('sortBy',function($q){
+            $q->orderByNullLast('user_id',$request->direction)
+        })
+        ->orderBy('name')
+```
+
+Keni 3 statuse: Requested, Approved, Completed
+Rendintja by default eshte Approved, Requested ,Completed
+Renditi: Requested, Approved, Completed
+
+```php
+    public function scopeOrderByStatus($query, $direction)
+    {
+        return $query->orderBy(DB::raw(
+            'case
+                when status = "requested" then 1
+                when status = "approved" then 2
+                when status = "completed" then 3
+            end'
+        ),$direction )
+    }
+```
+
+Supozorjm qe kemi 1 Blog me Kometen, Shikime, Like, Share dhe deshirojm te bejme sort nga aktiviteti
+Per ta bere kete duhet te caktojm sa "pike" ose "score" do te kente secila ...
+
+Komentet: 3pike,
+Shikimet: 1pike,
+Like: 1pike,
+Share: 2pike
+
+```php
+
+    public function scopeOrderByActivity($query, $direction){
+       return $query->orderBy(DB::raw(
+            '(comment + (views * 3) + like + (share * 3) )'
+        ), $direction);
+    }
+```
