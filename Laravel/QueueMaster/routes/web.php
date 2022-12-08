@@ -64,6 +64,8 @@ Route::get('/pipe-line', function () {
 })->name('pipeline');
 
 
+Route::get('/invoice', InvoiceController::class)->name('invoice');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
