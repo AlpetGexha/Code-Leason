@@ -1,0 +1,66 @@
+version: '3.7'
+
+services:
+    nginx:
+        build:
+            context: .
+            dockerfile: nginx.dockerfile
+        ports:
+            - 80:80
+        volumes:
+            # - ./nginx.conf:/etc/nginx/nginx.conf
+            # - ./html:/usr/share/nginx/html
+            - ./src:/var/www/html
+        restart: unless-stopped
+        depends_on:
+            - mysql
+            - php
+
+    mysql:
+        image: mysql:5.7
+        ports:
+            - 3310:3306
+        environment:
+            MYSQL_DATABASE: laravel
+            MYSQL_USER: laravel
+            MYSQL_ROOT_PASSWORD: secret
+            MYSQL_PASSWORD: secret
+        volumes:
+            - ./mysql:/var/lib/mysql
+        restart: unless-stopped
+
+    php:
+        build:
+            context: .
+            dockerfile: php.dockerfile
+        volumes:
+            - ./src:/var/www/html
+        # ports:
+        #     - 9000:9000
+        restart: unless-stopped
+    composer:
+        build:
+            context: .
+            dockerfile: composer.dockerfile
+        volumes:
+            - ./src:/var/www/html
+        working_dir: /var/www/html
+        restart: unless-stopped
+        depends_on:
+            - php
+    npm:
+        image: node:current-alpine
+        volumes:
+            - ./src:/var/www/html
+        working_dir: /var/www/html
+        restart: unless-stopped
+        entrypoint: ["npm"]
+    artisan:
+        build:
+            context: .
+            dockerfile: php.dockerfile
+        volumes:
+        - ./src:/var/www/html:delegated
+        depends_on:
+        - mysql
+        entrypoint: [ 'php', '/var/www/html/artisan' ]
