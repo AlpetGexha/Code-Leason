@@ -199,7 +199,7 @@ $pipeline = app(Pipeline::class);
 - `->send()` - Requesti i derguar
 
 - `->through([...])` - Funskionet ku kalon requesti 
-- `->then()` - Sfash dicka pas manipulimit me request
+- `->then()` - Shfash dicka pas manipulimit me request
 
 Më së shumëti gjen zbatim te llogjika me middleware
 
