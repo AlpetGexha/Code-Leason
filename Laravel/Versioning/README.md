@@ -25,10 +25,12 @@ Krijom një middleware `APIVersion`
 ```php
 namespace App\Http\Middleware;
 use Closure;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class APIVersion
 {
-    public function handle($request, Closure $next, $guard)
+    public function handle(Request $request, Closure $next, $guard): Response
     {
         config(['app.api.version' => $guard]);
         return $next($request);
@@ -41,7 +43,7 @@ Në `app\Http\Kernel.php` shtojm middewarin qe _APIVersion_
 ```php
 protected $middlewareAliases = [
        ...
-        'api_version' => \App\Http\Middleware\APIversion::class,
+        'api_version' => \App\Http\Middleware\APIVersion::class,
     ];
 ```
 
